@@ -13,7 +13,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      searchResults = serchByEyecolor(people)
+      //searchResults = serchByEyecolor(people)
       case 'yes' :
       break; 
       case 'no'  :
@@ -21,8 +21,8 @@ function app(people){
       case 'yes' :
       break;
       case 'no'  :
-      searchResults = SearchByHeight(people)
-      case 'yes' :
+      //searchResults = SearchByHeight(people)
+     case 'yes' :
       break;
       case 'no' :
       default:
@@ -46,38 +46,22 @@ function mainMenu(person, people){
   }
 
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    function displayInfo(counter){
-      console.log("Info");
-      if(counter>0){
-        return displayInfo(counter-1);
-      }
-    }
+    search
     break;
     case "family":
-    // TODO: get person's family
-    function displayFamily(counter){
-      console.log("Family");
-      if(counter>0){
-        return displayFamily(counter-1)
-      }
-    }
+   // TODO: get person's family
+   break;
+   case "descendants":
+   // TODO:get person's decendants
+   break;
+   case "restart":
+   app(people); // restart
     break;
-    case "descendants":
-    // TODO: get person's descendants
-    function displayDescendants(counter){
-      console.log("Dessendants")
-      if(counter>0){
-        return displayDescendants(counter-1)
-      }
-    }
-    break;
-    case "restart":
-    app(people); // restart
-    break;
-    case "quit":
+    case "quit": 
     return; // stop execution
     default:
     return mainMenu(person, people); // ask again
