@@ -46,17 +46,33 @@ function mainMenu(person, people){
   }
 
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    search
+    function displayInfo(counter){
+      console.log("Info");
+      if(counter>0){
+        return displayInfo(counter-1);
+      }
+    }
     break;
     case "family":
     // TODO: get person's family
+    function displayFamily(counter){
+      console.log("Family");
+      if(counter>0){
+        return displayFamily(counter-1)
+      }
+    }
     break;
     case "descendants":
     // TODO: get person's descendants
+    function displayDescendants(counter){
+      console.log("Dessendants")
+      if(counter>0){
+        return displayDescendants(counter-1)
+      }
+    }
     break;
     case "restart":
     app(people); // restart
@@ -88,7 +104,7 @@ function searchByName(people){
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
-  }).join("\n"));
+  }).join("\n")); 
 }
 
 function displayPerson(person){
@@ -96,10 +112,23 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  let personInfo = "Height" + "\n";
+  personInfo += "Height" + person.height + "\n";
+  let personInfo = "Weight" + "\n";
+  personInfo += "Weight" + person.weight + "\n";
+  let personInfo = "Age" + "\n";
+  personInfo += "Age" + person.age + "\n";
+  let personInfo = "Occupation"+ "\n";
+  personInfo += "Occupation"+ person.occupation + "\n";
+  let personInfo = "Eye Color" + "\n";
+  personInfo +=  "Eye Color" + person.eyeColor + "\n";
+}
+
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
   
-}
+
+
 
 // function that prompts and validates user input
 function promptFor(question, valid){
