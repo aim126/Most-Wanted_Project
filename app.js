@@ -13,7 +13,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      //searchResults = serchByEyecolor(people)
+      searchResults = serchByEyecolor(people)
       case 'yes' :
       break; 
       case 'no'  :
@@ -21,7 +21,7 @@ function app(people){
       case 'yes' :
       break;
       case 'no'  :
-      //searchResults = SearchByHeight(people)
+      searchResults = SearchByHeight(people)
      case 'yes' :
       break;
       case 'no' :
@@ -96,21 +96,20 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  let personInfo = "Height" + "\n";
-  personInfo += "Height" + person.height + "\n";
-  let personInfo = "Weight" + "\n";
+     personInfo += "Height" + person.height + "\n";
   personInfo += "Weight" + person.weight + "\n";
-  let personInfo = "Age" + "\n";
-  personInfo += "Age" + person.age + "\n";
-  let personInfo = "Occupation"+ "\n";
-  personInfo += "Occupation"+ person.occupation + "\n";
-  let personInfo = "Eye Color" + "\n";
-  personInfo +=  "Eye Color" + person.eyeColor + "\n";
+       personInfo += "Age" + person.age + "\n";
+    personInfo += "Occupation"+ person.occupation + "\n";
+    personInfo += "Eye Color" + person,eyeColor   + "\n"
+    alert(personInfo);
 }
 
-  // TODO: finish getting the rest of the information to display
-  alert(personInfo);
   
+
+
+  // TODO: finish getting the rest of the information to display
+  
+
 
 
 
