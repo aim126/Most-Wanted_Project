@@ -81,7 +81,8 @@ function searchByName(people){
     }
   })
   // TODO: find the person using the name they entered
-  return foundPerson;
+  //return foundPerson;
+  
 }
 
 // alerts a list of people
