@@ -13,19 +13,9 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      searchResults = serchByEyecolor(people)
-      case 'yes' :
+      searchResults = searchByTraits(people)
       break; 
-      case 'no'  :
-      searchResults = searchByGender(people)
-      case 'yes' :
-      break;
-      case 'no'  :
-      searchResults = SearchByHeight(people)
-     case 'yes' :
-      break;
-      case 'no' :
-      default:
+    default:
     app(people); // restart app
       break;
       
@@ -50,7 +40,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    search
+    displayPerson(person, people);
     break;
     case "family":
    // TODO: get person's family
@@ -71,19 +61,49 @@ function mainMenu(person, people){
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
+  let person;
+  let foundPerson = [];
 
-  let foundPerson = people.filter(function(person){
+  foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
       return true;
     }
     else{
       return false;
     }
-  })
+  });
   // TODO: find the person using the name they entered
   //return foundPerson;
-  
+  person = foundPerson.pop();
+  mainMenu(person,people); 
 }
+
+
+function searchByTraits(people){
+  //let listed = "";
+  //let filteredList = searchByGender(people);
+
+  //for(let i = 0; i < filteredList.lenght; i++){
+    //listed += filteredList[i].firstName + " " + filteredList[i].lastName + " . ";
+
+  //}
+
+  let gender = promptFor("What is the person's gender?", chars);
+  let person;
+  let foundPerson = [];
+
+  foundPerson = people.filter(function(person){
+    if(person.gender === gender){
+      return true;
+   }
+    else{
+      return false;
+    }
+  });
+  person = foundperson.pop();
+  mainMenu(person, people);
+}
+
 
 // alerts a list of people
 function displayPeople(people){
@@ -97,24 +117,15 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-     personInfo += "Height" + person.height + "\n";
-  personInfo += "Weight" + person.weight + "\n";
-       personInfo += "Age" + person.age + "\n";
-    personInfo += "Occupation"+ person.occupation + "\n";
-    personInfo += "Eye Color" + person,eyeColor   + "\n"
-    alert(personInfo);
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Age: " + person.age + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  alert(personInfo);
 }
 
-  
-
-
-  // TODO: finish getting the rest of the information to display
-  
-
-
-
-
-// function that prompts and validates user input
+  // function that prompts and validates user input
 function promptFor(question, valid){
   do{
     var response = prompt(question).trim();
